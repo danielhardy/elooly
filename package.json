@@ -1,0 +1,21 @@
+{
+  "name": "elooly",
+  "version": "0.0.1",
+  "description": "Simple chat app to learn nodejs",
+  "main": "app.js",
+  "scripts": {
+    "test": "na"
+  },
+  "author": "Myles <onenose@elooly.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "morgan": "^1.9.1",
+    "pug": "^2.0.4",
+    "session": "^0.1.0",
+    "socket.io": "^2.2.0"
+  }
+}

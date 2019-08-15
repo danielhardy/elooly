@@ -1,0 +1,18 @@
+extends layout.pug
+
+block scripts
+    
+block content
+    .flex-container
+        .flex-item
+            .navbar.navbar-expand-lg.navbar-light.bg-light
+                a.navbar-brand(href="#") elooly 
+        .flex-item
+            ul#messages
+                li.message Some message
+        .flex-item.input-area
+            form(action="")
+                .input-item
+                    input(type="text", autocomplete="off")
+                .input-item
+                    button(type="submit") Send
