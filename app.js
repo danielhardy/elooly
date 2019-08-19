@@ -5,8 +5,9 @@ var express = require('express'),
     //passport = require('passport'),
     morgan = require('morgan'),
     cookieParser = require('cookie-parser'),
-    //mongoStore = require('connect-mongo/es5')(session),
-    session = require('express-session');
+    session = require('express-session'),
+    path = require('path'),
+    sassMiddleware = require('node-sass-middleware');
 
 // Configure Passport;
 //require('./config/passport')(passport);
@@ -28,6 +29,14 @@ var app = express();
     app.use(cookieParser()); // read cookies (needed for auth)
     app.use(bodyParser.json()); // get information from html forms
     app.use(bodyParser.urlencoded({ extended: true }));
+    
+    // setup a middleware for compiling SCSS;
+    app.use(sassMiddleware({
+        src: path.join(__dirname, 'src'),
+        dest: path.join(__dirname, 'public'),
+        debug: true,
+        outputStyle: 'compress'
+    }));
 
     // required for passport
     //app.use(session({ secret: 'FoSheezyWizzlePizzle' })); // session secret
@@ -87,6 +96,7 @@ app.get('/', function(req, res) {
     var routes = app._router.stack;
     res.render('index');
 });
+
 
 // About us page
 app.get('/about', function(req, res) {
