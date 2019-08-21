@@ -9,27 +9,6 @@ var express = require('express'),
     path = require('path'),
     sassMiddleware = require('node-sass-middleware');
 
-
-//Setup for some chat action;
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-
-io.sockets.on('connection', function(socket) {
-    socket.on('username', function(username) {
-        socket.username = username;
-        io.emit('is_online', '🔵 <i>' + socket.username + ' join the chat..</i>');
-    });
-
-    socket.on('disconnect', function(username) {
-        io.emit('is_online', '🔴 <i>' + socket.username + ' left the chat..</i>');
-    })
-
-    socket.on('chat_message', function(message) {
-        io.emit('chat_message', '<strong>' + socket.username + '</strong>: ' + message);
-    });
-
-});
-
 // Configure Passport;
 //require('./config/passport')(passport);
 
@@ -52,15 +31,13 @@ var app = express();
     app.use(bodyParser.urlencoded({ extended: true }));
     
     // setup a middleware for compiling SCSS;
-    /*
     app.use(sassMiddleware({
         src: path.join(__dirname, 'src'),
         dest: path.join(__dirname, 'public'),
         debug: true,
         outputStyle: 'compress'
     }));
-    */
-    
+
     // required for passport
     //app.use(session({ secret: 'FoSheezyWizzlePizzle' })); // session secret
    /* app.use(session({
@@ -136,11 +113,6 @@ var port = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000;
 var host = process.env.OPENSHIFT_NODEJS_IP || process.env.IP || 'localhost';
 
 //Get the server listening;
-/*app.listen(port, host, function(){
+app.listen(port, host, function(){
     console.log("Express server started at"+host+":"+port);
-});*/
-
-//This said it should be 'http.listen...'
-const server = app.listen(port, host, function() {
-    console.log('listening on '+host+':'+port);
 });
