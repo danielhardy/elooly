@@ -11,7 +11,7 @@ var port = process.env.PORT || 8080;
 var host = process.env.IP || 'localhost';
 
 // start the server
-server.listen(port, host);
+server.listen(port);
 
 // configure express;
 app.set('view engine', 'pug');
