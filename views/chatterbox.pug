@@ -84,6 +84,10 @@ block scripts
     
     // on load of page
     $(function(){
+    
+      if(secrete_room !== ""){
+        switchRoom(secrete_room);
+      }
       // when the client clicks SEND
       $('#message-send').click( function() {
         //Get the messages;
