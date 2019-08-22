@@ -1,23 +1,8 @@
-extends layout.pug
-
-block scripts
-  script.
-    //get the secrete room name (passed in from backend);
-    var secrete_room = "#{secrete_room}";
-    
-    //Colors for usernames;
-    var user_colors = {};
-    
-    //open the connection    
-    var socket = io.connect('//#{host}:#{port}');
-    
-    //Capture a username;
-    var this_user= prompt("What's your name?");
-    
+//get the secrete room name (passed in from backend);
     // on connection to server, ask for user's name with an anonymous callback      
     socket.on('connect', function(){
       // call the server-side function 'adduser' and send one parameter (value of prompt)
-      socket.emit('adduser', this_user);
+      socket.emit('adduser', prompt("What's your name?"));
     });
     
     // listener, whenever the server emits 'updatechat', this updates the chat body
@@ -30,22 +15,7 @@ block scripts
         user_colors[username] = "#"+Math.floor(Math.random()*16777215).toString(16);
       }
       
-      //Determine if this was from you or someone else
-      var message_class = "them";
-      if(this_user === username){
-        message_class = "you";
-      }
-      else if (username === "SERVER"){
-        message_class = "server";
-      }
-      
-      //Put the message on the page;
-      $('#messages').append('<li class="message '+message_class+'"><b style="color: '+user_colors[username]+'">'+username + ':</b> ' + data + '</li>');
-      
-      
-      //Scroll appropriately;
-      //$(".message-container").scrollTop($(".message-container")[0].scrollHeight);
-      $('.message-container').stop().animate({scrollTop: $('.message-container')[0].scrollHeight}, 800);
+      $('#messages').append('<li><b style="color: '+user_colors[username]+'">'+username + ':</b> ' + data + '</li>');
     });
     
     // listener, whenever the server emits 'updaterooms', this updates the room the client is in
@@ -80,15 +50,10 @@ block scripts
     $(function(){
       // when the client clicks SEND
       $('#message-send').click( function() {
-        //Get the messages;
         var message = $('#new-message').val();
+        console.log("sent new message");
         
-        //Clear the message;
         $('#new-message').val('');
-        
-        //Place the focus back on the field;
-        $('#new-message').focus();
-        
         // tell server to execute 'sendchat' and send along one parameter
         socket.emit('sendchat', message);
       });
@@ -101,19 +66,3 @@ block scripts
       }
       });
     });
-    
-block content
-  .header
-    .nav
-      h1.logo
-        a(href="/") eChat
-      #rooms
-  
-  //-Messages box  
-  .message-container
-    ul#messages
-      //-Messages go here
-  .message-creator
-    #message-creator.message-box
-      input#new-message.new-message(type="text")
-      button#message-send.btn.btn-primary Send

@@ -1,18 +1,20 @@
 html
     head
-        include includes/meta.pug
         title elooly - Chat protocol 3000!
         
         // Stylesheets
-        link(rel="stylesheet" href="/public/css/styles.css")
+        link(rel="stylesheet" href="/css/styles.css")
         
         // JS
-        script(src='https://cdn.socket.io/socket.io-1.2.0.js')   
-        script(src='https://code.jquery.com/jquery-1.11.1.js')
-        //script(src='/socket.io/socket.io.js')
-        //script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js')
+        //script(src='https://cdn.socket.io/socket.io-1.2.0.js')   
+        //script(src='https://code.jquery.com/jquery-1.11.1.js')
+        script(src='/socket.io/socket.io.js')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js')
   
         block scripts
         
+        
+        
+        include includes/meta.pug
     body
         block content

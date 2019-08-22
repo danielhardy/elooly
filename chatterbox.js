@@ -15,24 +15,24 @@ server.listen(port, host);
 
 // configure express;
 app.set('view engine', 'pug');
+app.use(express.static('public'));
 
 // setup a middleware for compiling SCSS;
-/*
 app.use(sassMiddleware({
     src: path.join(__dirname, 'src'),
     dest: path.join(__dirname, 'public'),
     debug: true,
+    force: true,
     outputStyle: 'compress'
 }));
-*/
+
 
 // routing
 app.get('/', function (req, res) {
-  //res.sendFile(__dirname + '/index.html');
   res.send('index');
 });
 
-app.get('/:roomname', function (req, res){
+app.get('/r/:roomname', function (req, res){
     res.render('chatterbox', {secrete_room: req.params.roomname, host: process.env.HOST, port: port});
 });
 

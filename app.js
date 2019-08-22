@@ -117,7 +117,7 @@ function isLoggedIn(req, res, next) {
 app.get('/', function(req, res) {
     //Print all routes;
     var routes = app._router.stack;
-    res.render('index');
+    res.render('index', {host: app.locals.domain, port: process.env.PORT, secrete_room: "awesome" });
 });
 
 app.get('/allRoutes', function(req, res) {

@@ -1,6 +1,17 @@
 extends layout.pug
 block scripts
-
+    script.
+        var secrete_room = "#{secrete_room}";
+        
+        //Colors for usernames;
+        
+        var user_colors = {};
+        
+        //open the connection 
+        
+        var socket = io.connect('//#{host}:#{port}');
+    
+    script(src='js/chat.js')
 block content
     .message-container
         ul#messages
