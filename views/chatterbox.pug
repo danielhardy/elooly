@@ -24,12 +24,17 @@ block scripts
     // listener, whenever the server emits 'updatechat', this updates the chat body
     socket.on('updatechat', function (username, data) {
       console.log('Message receieved!');
+      var message_background = "";
       
       //Determine if user has a color if not make one;
       if( !user_colors.hasOwnProperty(username) ){
+      
         //This is client side only so it is not managed by a user;
         user_colors[username] = "#"+Math.floor(Math.random()*16777215).toString(16);
       }
+      
+      //Set the background for this user
+      message_background = user_colors[username];
       
       //Determine if this was from you or someone else
       var message_class = "them";
@@ -38,10 +43,11 @@ block scripts
       }
       else if (username === "SERVER"){
         message_class = "server";
+        message_background = "none";
       }
       
       //Put the message on the page;
-      $('#messages').append('<li class="message '+message_class+'"><b style="color: '+user_colors[username]+'">'+username + ':</b> ' + data + '</li>');
+      $('#messages').append('<li class="message '+message_class+'" style="background-color: '+message_background+';"><b>'+username + ':</b> ' + data + '</li>');
       
       
       //Scroll to bottom;
