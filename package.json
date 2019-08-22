@@ -2,9 +2,10 @@
   "name": "elooly",
   "version": "0.0.1",
   "description": "Simple chat app to learn nodejs",
-  "main": "app.js",
+  "main": "chatterbox.js",
   "scripts": {
-    "test": "na"
+    "test": "na",
+    "start": "node chatterbox.js"
   },
   "author": "Myles <onenose@elooly.com>",
   "license": "ISC",
