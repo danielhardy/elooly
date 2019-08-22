@@ -8,7 +8,7 @@ var express = require('express')
 
 
 var port = process.env.PORT || 8080;
-var host = process.env.IP || 'localhost';
+var host = process.env.HOSTNAME || 'localhost';
 
 // start the server
 server.listen(port);
@@ -55,7 +55,7 @@ io.sockets.on('connection', function (socket) {
 		// send client to room 1
 		socket.join('room1');
 		// echo to client they've connected
-		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
+		socket.emit('updatechat', 'SERVER', 'you have connected to a new room');
 		// echo to room 1 that a person has connected to their room
 		socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
 		socket.emit('updaterooms', rooms, 'room1');

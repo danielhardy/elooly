@@ -8,8 +8,9 @@ block scripts
     //Colors for usernames;
     var user_colors = {};
     
+    var HOST = location.origin.replace(/^http/, 'ws');
     //open the connection    
-    var socket = io.connect('//#{host}:#{port}');
+    var socket = io.connect(HOST);
     
     //Capture a username;
     var this_user= prompt("What's your name?");
@@ -43,8 +44,7 @@ block scripts
       $('#messages').append('<li class="message '+message_class+'"><b style="color: '+user_colors[username]+'">'+username + ':</b> ' + data + '</li>');
       
       
-      //Scroll appropriately;
-      //$(".message-container").scrollTop($(".message-container")[0].scrollHeight);
+      //Scroll to bottom;
       $('.message-container').stop().animate({scrollTop: $('.message-container')[0].scrollHeight}, 800);
     });
     
