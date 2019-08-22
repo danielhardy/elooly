@@ -7,8 +7,8 @@ var express = require('express')
   , io = require('socket.io').listen(server);
 
 
-var port = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000;
-var host = process.env.OPENSHIFT_NODEJS_IP || process.env.IP || 'localhost';
+var port = process.env.PORT || 8080;
+var host = process.env.IP || 'localhost';
 
 // start the server
 server.listen(port, host);
