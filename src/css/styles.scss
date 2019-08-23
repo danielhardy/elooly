@@ -54,12 +54,13 @@ body{
   right: 0px;
   bottom: $footer-height;
   width: 100vw;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 #messages{ 
-  display: flex;
   width: 100vw;
+  padding-top:20px;
+  display: flex;
   flex-grow: 1;
   flex-direction: column;
   flex-wrap: nowrap;
