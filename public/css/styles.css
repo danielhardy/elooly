@@ -122,9 +122,18 @@ body {
 
 .server {
   background-color: #f7f7f7;
+  font-size: .85em;
+  padding: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   color: #aaa;
   flex: 0 1 auto;
   align-self: stretch; }
+
+.message_username {
+  font-size: .7em;
+  text-transform: uppercase;
+  font-weight: bold; }
 
 /*
  * Message Creator

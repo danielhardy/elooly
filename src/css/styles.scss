@@ -90,9 +90,18 @@ body{
 }
 .server{
   background-color: $grey100;
-  color: #aaa;
+  font-size: .85em;
+  padding: 0px;
+  margin-top:5px;
+  margin-bottom: 5px;
+  color: $grey300;
   flex: 0 1 auto;
   align-self: stretch;
+}
+.message_username{
+  font-size: .7em;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 /*

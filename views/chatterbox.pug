@@ -47,7 +47,7 @@ block scripts
       }
       
       //Put the message on the page;
-      $('#messages').append('<li class="message '+message_class+'" style="background-color: '+message_background+';"><b>'+username + ':</b> ' + data + '</li>');
+      $('#messages').append('<li class="message '+message_class+'" style="background-color: '+message_background+';"><span class="message_username">'+username + ':</span><div class="message_content">' + data + '</div></li>');
       
       
       //Scroll to bottom;
