@@ -1,5 +1,5 @@
 {
-  "name": "elooly",
+  "name": "elooly - Chatlooly",
   "version": "0.0.1",
   "description": "Simple chat app to learn nodejs",
   "main": "chatterbox.js",
@@ -7,7 +7,7 @@
     "test": "na",
     "start": "node chatterbox.js"
   },
-  "author": "Myles <onenose@elooly.com>",
+  "author": "Daniel Hardy <daniel@rookandrum.com>; Myles <onenose@elooly.com>",
   "license": "ISC",
   "engines": {
     "node": "10.16.2"
