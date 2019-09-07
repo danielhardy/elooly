@@ -29,7 +29,7 @@ app.use(sassMiddleware({
 
 // routing
 app.get('/', function (req, res) {
-  res.send('index');
+  res.send('No room identified... Please try a room specific URL.');
 });
 
 app.get('/r/:roomname', function (req, res){
