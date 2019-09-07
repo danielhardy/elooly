@@ -46,12 +46,9 @@ table {
  */
 body {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   background: #f7f7f7;
   overflow: hidden; }
-
-.header, .message-creator {
-  background-color: #fff; }
 
 /*
  * Top Bar
@@ -66,7 +63,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 1000; }
+  z-index: 1000;
+  background-color: #008080;
+  text-align: center; }
 
 .nav {
   margin: 8px; }
@@ -87,12 +86,13 @@ body {
   right: 0px;
   bottom: 40px;
   width: 100vw;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden; }
 
 #messages {
-  display: flex;
   width: 100vw;
+  padding-top: 20px;
+  display: flex;
   flex-grow: 1;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -104,7 +104,7 @@ body {
   padding: 8px;
   margin: 8px;
   border-radius: 4px;
-  background-color: #ee0099;
+  background-color: #008080;
   color: #333;
   max-width: 60vw; }
 
@@ -145,7 +145,8 @@ body {
   right: 0;
   height: 40px;
   background: #fff;
-  box-shadow: 0 -3px 15px rgba(100, 100, 100, 0.2); }
+  box-shadow: 0 -3px 15px rgba(100, 100, 100, 0.2);
+  background-color: #fff; }
 
 #message-creator {
   display: flex; }
@@ -165,5 +166,5 @@ body {
   font-size: 14px; }
 
 .btn-primary {
-  background-color: #ee0099;
+  background-color: #008080;
   color: #fff; }

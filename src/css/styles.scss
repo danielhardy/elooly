@@ -15,9 +15,7 @@ body{
   background: $grey100;
   overflow:hidden;
 }
-.header, .message-creator{
-  background-color: $white;
-}
+
 
 /*
  * Top Bar
@@ -33,6 +31,8 @@ body{
   flex-direction: column;
   justify-content: center;
   z-index: 1000;
+  background-color: $primary;
+  text-align: center;
 }
 .nav{
   margin: $side-margin;
@@ -116,6 +116,7 @@ body{
   height: $footer-height;
   background: #fff;
   box-shadow: 0 -3px 15px rgba(100, 100, 100, 0.2);
+  background-color: $white;
 }
 #message-creator{
   display: flex;
