@@ -29,11 +29,20 @@ app.use(sassMiddleware({
 
 // routing
 app.get('/', function (req, res) {
-  res.send('No room identified... Please try a room specific URL.');
+	
+  res.send('No room identified... Please try a room specific URL. '+req.params['room_name']);
 });
 
 app.get('/r/:roomname', function (req, res){
     res.render('chatterbox', {secrete_room: req.params.roomname, host: process.env.HOST, port: port});
+});
+
+// Privacy & TOS
+app.get('/privacy', function(req, res){
+	res.render('privacy_policy');
+});
+app.get('/tos', function(req, res){
+	res.render('tos');
 });
 
 // usernames which are currently connected to the chat

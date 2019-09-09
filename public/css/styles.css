@@ -50,6 +50,9 @@ body {
   background: #f7f7f7;
   overflow: hidden; }
 
+a {
+  color: #008080; }
+
 /*
  * Top Bar
  */
