@@ -47,8 +47,7 @@ table {
 body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 15px;
-  background: #f7f7f7;
-  overflow: hidden; }
+  background: #f7f7f7; }
 
 a {
   color: #008080; }
@@ -109,7 +108,8 @@ a {
   border-radius: 4px;
   background-color: #008080;
   color: #333;
-  max-width: 60vw; }
+  max-width: 60vw;
+  overflow-wrap: break-word; }
 
 .them {
   order: 0;
@@ -143,7 +143,7 @@ a {
  */
 .message-creator {
   position: absolute;
-  bottom: 0;
+  bottom: 1px;
   left: 0;
   right: 0;
   height: 40px;
