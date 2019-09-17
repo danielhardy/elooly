@@ -4,9 +4,15 @@ var express = require('express')
   , server = http.createServer(app)
   , sassMiddleware = require('node-sass-middleware')
   , path = require('path')
-  , io = require('socket.io').listen(server);
+  , io = require('socket.io').listen(server)
+  , Logger = require('le_node');
 
+// setup Log Entries
+var log = new Logger({
+  token:'5c4fe351-5c5d-4ee5-83bb-1767800c952b'
+});
 
+// configure port/host info
 var port = process.env.PORT || 8080;
 var host = process.env.HOSTNAME || 'localhost';
 
@@ -26,10 +32,8 @@ app.use(sassMiddleware({
     outputStyle: 'compress'
 }));
 
-
 // routing
 app.get('/', function (req, res) {
-	
   res.send('No room identified... Please try a room specific URL. '+req.params['room_name']);
 });
 
@@ -55,19 +59,28 @@ io.sockets.on('connection', function (socket) {
 
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
+		
 		// store the username in the socket session for this client
 		socket.username = username;
+		
 		// store the room name in the socket session for this client
 		socket.room = 'room1';
+		
 		// add the client's username to the global list
 		usernames[username] = username;
+		
 		// send client to room 1
 		socket.join('room1');
+		
 		// echo to client they've connected
 		socket.emit('updatechat', 'Chit Chatter[server]', 'you have connected to a new room');
+		
 		// echo to room 1 that a person has connected to their room
 		socket.broadcast.to('room1').emit('updatechat', 'Chit Chatter[server]', username + ' has connected to this room');
 		socket.emit('updaterooms', rooms, 'room1');
+		
+		// log the connection
+		log.log("debug", {username: username});
 	});
 
 	// when the client emits 'sendchat', this listens and executes
@@ -98,5 +111,7 @@ io.sockets.on('connection', function (socket) {
 		// echo globally that this client has left
 		socket.broadcast.emit('updatechat', 'Chit Chatter[server]', socket.username + ' has disconnected');
 		socket.leave(socket.room);
+		// log the disconnection
+		log.log("debug", {username: socket.username});
 	});
 });
