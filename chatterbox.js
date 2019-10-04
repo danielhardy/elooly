@@ -34,7 +34,8 @@ app.use(sassMiddleware({
 
 // routing
 app.get('/', function (req, res) {
-  res.send('No room identified... Please try a room specific URL. '+req.params['room_name']);
+  //res.send('No room identified... Please try a room specific URL. '+req.params['room_name']);
+  res.render('index');
 });
 
 app.get('/r/:roomname', function (req, res){

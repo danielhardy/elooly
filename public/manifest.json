@@ -5,7 +5,8 @@
     {
       "src": "/img/icons/android/xxxhdpi.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "maskable"
     },
     {
       "src": "/img/icons/android/googleplayicon.png",

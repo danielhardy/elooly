@@ -5,13 +5,14 @@
 
 @import 'includes/vars';
 @import 'includes/reset';
+//@import 'includes/grid';
+//@import 'includes/grid/grid.scss'
+@import 'includes/typography';
 
 /*
  * Basic Styles
  */
 body{
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 15px;
   background: $grey100;
 }
 a{

@@ -1,33 +1,12 @@
 extends layout.pug
 block scripts
-    script.
-        var secrete_room = "#{secrete_room}";
-        
-        //Colors for usernames;
-        
-        var user_colors = {};
-        
-        //open the connection 
-        
-        var socket = io.connect('//#{host}:#{port}');
     
-    script(src='js/chat.js')
 block content
-    .message-container
-        ul#messages
-            li.message.them This is a message from someone.
-          
-            li.message.you This is a message from you.
-          
-            li.message.them This is a message from someone. It is super long and really full of content. It is amazing how much content you can fit before it wraps. You can really just keep adding content. It just looks great doesn't it. Maybe we should think about what color, or how rounded this bad boy is.
-          
-            li.message.you This is a message from you about how awesome this thing is.
-            li.message.you Isn't this thing just amazing? I think it is incredible how much content you can have in here. Super cool!
-          
-            li.message.you What if we put too much content in here. Do you think it will scroll?
-          
-            li.message.them I don't know? Did it?
-    .message-creator
-        form#message-creator.message-box(action="post")
-            input#new-message.new-message(type="text")
-            button.btn.btn-primary Send
+    .container
+        .row.justify-content-sm-center
+            .col-12.col-md-8.col-lg-6(style="margin-top:50px;")
+                h1 Welcome to Chatlooly
+                p Chatlooly is a very simple chat application that is 100% anonymous 
+                    | and has no long term memory. Like real life, when you leave a room everything 
+                    | that was said is left only in the memory of those who were there.
+                

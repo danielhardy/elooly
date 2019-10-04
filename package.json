@@ -19,7 +19,6 @@
     "express-session": "^1.16.2",
     "le_node": "^1.8.0",
     "morgan": "^1.9.1",
-    "node-sass": "^4.12.0",
     "node-sass-middleware": "^0.11.0",
     "pug": "^2.0.4",
     "session": "^0.1.0",
